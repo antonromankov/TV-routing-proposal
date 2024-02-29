@@ -1,0 +1,29 @@
+h1 {
+  margin-bottom: 30px;
+}
+
+.app-wrapper {
+  padding: 60px 0;
+}
+
+.breadcrumbs {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  z-index: 10;
+
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  padding: 15px 25px;
+
+  width: 500px;
+
+  /*border: 1px solid #ccc;*/
+}
+
+.breadcrumb {
+  margin-bottom: 0;
+}

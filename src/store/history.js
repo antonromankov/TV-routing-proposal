@@ -11,7 +11,8 @@ export const historyStore = (set) => ({
 	removeLastPage: () =>
 		set(
 			(state) => {
-				state.history.pages = state.history.pages.slice(-1)
+				const { pages } = state.history
+				state.history.pages = pages.slice(0, pages.length - 1)
 			},
 			false,
 			'removeLastPage'

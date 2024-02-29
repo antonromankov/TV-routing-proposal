@@ -1,19 +1,20 @@
-import { useEffect } from 'react'
+// import { useLocation } from 'react-router-dom'
+import { Container } from 'reactstrap'
 
-import { useStore } from './store'
+import { Breadcrumbs } from './components'
+import { Home, Router } from './containers'
 
 export const App = () => {
-	const { pages, pushPage } = useStore((state) => state.history)
-
-	useEffect(() => {
-		pushPage(1)
-	}, [])
+	// const location = useLocation()
 
 	return (
-		<div>
-			Hello world
+		<div className="app-wrapper position-relative">
+			<Home />
+			<Breadcrumbs />
 			<br />
-			<pre>{JSON.stringify(pages, null, 2)}</pre>
+			<Container>
+				<Router />
+			</Container>
 		</div>
 	)
 }
