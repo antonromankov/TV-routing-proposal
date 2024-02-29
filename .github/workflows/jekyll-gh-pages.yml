@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches: [ "main" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,7 +35,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Rename folder
-        run: mv dist build
+        run: mv dist _site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
