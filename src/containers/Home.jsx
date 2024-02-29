@@ -9,8 +9,8 @@ const links = [
 export const Home = () => (
 	<div className="position-relative z-0">
 		<Container>
-			<h1>This is a home page</h1>
-			<LinksList items={links} />
+			<h1>Home page</h1>
+			<LinksList items={links} row />
 		</Container>
 	</div>
 )

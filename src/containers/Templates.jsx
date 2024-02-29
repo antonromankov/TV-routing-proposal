@@ -1,8 +1,10 @@
 import { useLocation, useParams } from 'react-router-dom'
 
 import { BackLink, LinksList } from '../components'
+import { Component, useEffect } from 'react'
+import { useStore } from '../store'
 
-export const PagesTemplate = ({ prevPage, header, links }) => {
+const PagesTemplateRaw = ({ prevPage, header, links }) => {
 	const location = useLocation()
 
 	return (
@@ -14,13 +16,34 @@ export const PagesTemplate = ({ prevPage, header, links }) => {
 	)
 }
 
-export const PageTemplate = ({prevPage, headerPrefix}) => {
+const PageTemplateRaw = ({ prevPage, headerPrefix }) => {
 	const { id } = useParams()
 
 	return (
 		<div>
 			<BackLink to={prevPage} />
-			<h2>{headerPrefix} {id}</h2>
+			<h2 className="mb-3">
+				{headerPrefix} {id}
+			</h2>
 		</div>
 	)
 }
+
+const withHistory = (Component) => (props) => {
+	const { pathname } = useLocation()
+	const { pages, pushPage, removeLastPage } = useStore((state) => state.history)
+
+	useEffect(() => {
+		console.log('🚀 | Templates.jsx:34 | location.pathname', pathname)
+		// const lastPage = pages.slice(-1)[0]
+
+		return () => {
+			console.log(`${pathname} unmounted`)
+		}
+	}, [pathname])
+
+	return <Component {...props} />
+}
+
+export const PageTemplate = withHistory(PageTemplateRaw)
+export const PagesTemplate = withHistory(PagesTemplateRaw)

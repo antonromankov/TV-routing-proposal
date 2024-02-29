@@ -1,18 +1,18 @@
-import { useStore } from '../store'
+import { Link, useLocation } from 'react-router-dom'
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap'
 
+import { useStore } from '../store'
+
 export const Breadcrumbs = () => {
-	// const { pathname } = useLocation()
-	const pathname = '/asd'
+	const { pathname } = useLocation()
 	const { pages } = useStore((state) => state.history)
 
 	return (
 		<div className="breadcrumbs">
-			<h5>Breadcrumbs</h5>
 			<Breadcrumb>
 				{pages.map((page, index) => (
 					<BreadcrumbItem key={page.path + index} active={pathname.includes(page.path)}>
-						<a href={page.path}>{page.name}</a>
+						<Link to={page.path}>{page.name}</Link>
 					</BreadcrumbItem>
 				))}
 			</Breadcrumb>

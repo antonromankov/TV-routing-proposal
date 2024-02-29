@@ -1,20 +1,21 @@
-// import { useLocation } from 'react-router-dom'
-import { Container } from 'reactstrap'
-
-import { Breadcrumbs } from './components'
-import { Home, Router } from './containers'
+import { Modal } from './components'
+import { Home } from './containers'
+import { useStore } from './store'
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 
 export const App = () => {
-	// const location = useLocation()
+	const location = useLocation()
+	const { isModalOpened, setModalOpened } = useStore((state) => state.common)
+
+	useEffect(() => {
+		setModalOpened(location.pathname !== '/')
+	}, [location])
 
 	return (
 		<div className="app-wrapper position-relative">
 			<Home />
-			<Breadcrumbs />
-			<br />
-			<Container>
-				<Router />
-			</Container>
+			<Modal isOpen={isModalOpened} onClose={() => setModalOpened(false)} />
 		</div>
 	)
 }
