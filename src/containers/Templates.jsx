@@ -1,7 +1,8 @@
+import { Component, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 import { BackLink, LinksList } from '../components'
-import { Component, useEffect } from 'react'
+
 import { useStore } from '../store'
 
 const PagesTemplateRaw = ({ prevPage, header, links }) => {
@@ -34,13 +35,14 @@ const withHistory = (Component) => (props) => {
 	const { pages, pushPage, removeLastPage } = useStore((state) => state.history)
 
 	useEffect(() => {
-		console.log('🚀 | Templates.jsx:34 | location.pathname', pathname)
-		// const lastPage = pages.slice(-1)[0]
-
+		// TODO get focus id from store
+		console.log(`${pathname} in`)
 		return () => {
-			console.log(`${pathname} unmounted`)
+			// TODO set focus id to store
+			// [{ path: pathname, focusId: currentPageFocusId }]
+			console.log(`${pathname} out`)
 		}
-	}, [pathname])
+	}, [])
 
 	return <Component {...props} />
 }

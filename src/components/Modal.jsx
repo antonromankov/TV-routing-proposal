@@ -1,10 +1,12 @@
 import { Modal as RModal, ModalHeader, ModalBody } from 'reactstrap'
-// import { useStore } from '../store'
-import { Router } from '../containers'
+
 import { Breadcrumbs } from './Breadcrumbs'
 
+import { Router } from '../containers'
+import { useStore } from '../store'
+
 export const Modal = ({ isOpen, onClose }) => {
-	// const { pages } = useStore((state) => state.history)
+	const { pages } = useStore((state) => state.history)
 
 	return (
 		<RModal isOpen={isOpen} toggle={onClose} backdrop="static">
