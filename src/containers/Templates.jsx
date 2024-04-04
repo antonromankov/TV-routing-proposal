@@ -6,45 +6,45 @@ import { BackLink, LinksList } from '../components'
 import { useStore } from '../store'
 
 const PagesTemplateRaw = ({ prevPage, header, links }) => {
-	const location = useLocation()
+  const location = useLocation()
 
-	return (
-		<div>
-			<BackLink to={prevPage} />
-			<h2>{header}</h2>
-			<LinksList items={links} />
-		</div>
-	)
+  return (
+    <div>
+      <BackLink to={prevPage} />
+      <h2>{header}</h2>
+      <LinksList items={links} />
+    </div>
+  )
 }
 
 const PageTemplateRaw = ({ prevPage, headerPrefix }) => {
-	const { id } = useParams()
+  const { id } = useParams()
 
-	return (
-		<div>
-			<BackLink to={prevPage} />
-			<h2 className="mb-3">
-				{headerPrefix} {id}
-			</h2>
-		</div>
-	)
+  return (
+    <div>
+      <BackLink to={prevPage} />
+      <h2 className="mb-3">
+        {headerPrefix} {id}
+      </h2>
+    </div>
+  )
 }
 
 const withHistory = (Component) => (props) => {
-	const { pathname } = useLocation()
-	const { pages, pushPage, removeLastPage } = useStore((state) => state.history)
+  const { pathname } = useLocation()
+  const { pages, pushPage, removeLastPage } = useStore((state) => state.history)
 
-	useEffect(() => {
-		// TODO get focus id from store
-		console.log(`${pathname} in`)
-		return () => {
-			// TODO set focus id to store
-			// [{ path: pathname, focusId: currentPageFocusId }]
-			console.log(`${pathname} out`)
-		}
-	}, [])
+  useEffect(() => {
+    // TODO get focus id from store
+    console.log(`${pathname} in`)
+    return () => {
+      // TODO set focus id to store
+      // [{ path: pathname, focusId: currentPageFocusId }]
+      console.log(`${pathname} out`)
+    }
+  }, [])
 
-	return <Component {...props} />
+  return <Component {...props} />
 }
 
 export const PageTemplate = withHistory(PageTemplateRaw)

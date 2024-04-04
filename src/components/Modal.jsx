@@ -6,16 +6,16 @@ import { Router } from '../containers'
 import { useStore } from '../store'
 
 export const Modal = ({ isOpen, onClose }) => {
-	const { pages } = useStore((state) => state.history)
+  const { pages } = useStore((state) => state.history)
 
-	return (
-		<RModal isOpen={isOpen} toggle={onClose} backdrop="static">
-			<ModalHeader toggle={onClose}>Breadcrumbs</ModalHeader>
-			<ModalBody>
-				<Breadcrumbs />
-				<hr />
-				<Router />
-			</ModalBody>
-		</RModal>
-	)
+  return (
+    <RModal isOpen={isOpen} toggle={onClose} backdrop="static">
+      <ModalHeader toggle={onClose}>Breadcrumbs</ModalHeader>
+      <ModalBody>
+        <Breadcrumbs />
+        <hr />
+        <Router />
+      </ModalBody>
+    </RModal>
+  )
 }

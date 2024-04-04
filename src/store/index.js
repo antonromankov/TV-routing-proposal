@@ -6,10 +6,10 @@ import { historyStore } from './history.js'
 import { commonStore } from './common.js'
 
 export const useStore = create()(
-	devtools(
-		immer((...args) => ({
-			common: { ...commonStore(...args) },
-			history: { ...historyStore(...args) }
-		}))
-	)
+  devtools(
+    immer((...args) => ({
+      common: { ...commonStore(...args) },
+      history: { ...historyStore(...args) }
+    }))
+  )
 )

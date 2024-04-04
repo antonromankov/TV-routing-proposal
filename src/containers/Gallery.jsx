@@ -1,20 +1,20 @@
 import { PagesTemplate, PageTemplate } from './Templates'
 
 const links = [
-	{ to: 'png', label: 'PNG images' },
-	{ to: 'jpeg', label: 'JPEG images' }
+  { to: 'png', label: 'PNG images' },
+  { to: 'jpeg', label: 'JPEG images' }
 ]
 
 const pngLinks = [
-	{ to: '1', label: 'PNG 1' },
-	{ to: '2', label: 'PNG 2' },
-	{ to: '3', label: 'PNG 3' }
+  { to: '1', label: 'PNG 1' },
+  { to: '2', label: 'PNG 2' },
+  { to: '3', label: 'PNG 3' }
 ]
 
 const jpegLinks = [
-	{ to: '1', label: 'JPEG 1' },
-	{ to: '2', label: 'JPEG 2' },
-	{ to: '3', label: 'JPEG 3' }
+  { to: '1', label: 'JPEG 1' },
+  { to: '2', label: 'JPEG 2' },
+  { to: '3', label: 'JPEG 3' }
 ]
 
 export const Gallery = () => <PagesTemplate prevPage="/" header="Gallery" links={links} />
