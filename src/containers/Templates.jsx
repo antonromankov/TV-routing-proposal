@@ -11,7 +11,7 @@ const PagesTemplateRaw = ({ header, links }) => {
 
   return (
     <div>
-      <h2>{header}</h2>
+      <h1>{header}</h1>
       <LinksList items={links} />
     </div>
   )
@@ -22,9 +22,9 @@ const PageTemplateRaw = ({ headerPrefix }) => {
 
   return (
     <div>
-      <h2 className="mb-3">
+      <h1 className="mb-3">
         {headerPrefix} {id}
-      </h2>
+      </h1>
     </div>
   )
 }
