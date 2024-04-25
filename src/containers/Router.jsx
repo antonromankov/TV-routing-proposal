@@ -4,6 +4,7 @@ import { Gallery, PNGImages, GalleryPNGItem, JPEGImages, GalleryJPEGItem } from 
 import { Pages, Page } from './Pages'
 import { FirstLayout, SecondLayout } from './layouts'
 import { Page404 } from './Page404'
+import { SettingsPageId, SettingsPages } from './Templates'
 
 export const Router = () => (
   <Routes>
@@ -30,8 +31,9 @@ export const Router = () => (
         </Route>
       </Route>
 
-      <Route path="settings">
-        <Route index element={<SecondLayout />} />
+      <Route path="settings" element={<SecondLayout />}>
+        <Route path="pages" element={<SettingsPages />} />
+        <Route path="pages/:id" element={<SettingsPageId />} />
       </Route>
     </Route>
 
