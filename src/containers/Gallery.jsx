@@ -17,8 +17,8 @@ const jpegLinks = [
   { to: '3', label: 'JPEG 3' }
 ]
 
-export const Gallery = () => <PagesTemplate prevPage="/" header="Gallery" links={links} />
-export const PNGImages = () => <PagesTemplate prevPage="/gallery" header="PNG images" links={pngLinks} />
-export const JPEGImages = () => <PagesTemplate prevPage="/gallery" header="JPEG images" links={jpegLinks} />
-export const GalleryPNGItem = () => <PageTemplate prevPage="/gallery/png" headerPrefix="PNG" />
-export const GalleryJPEGItem = () => <PageTemplate prevPage="/gallery/jpeg" headerPrefix="JPEG" />
+export const Gallery = () => <PagesTemplate header="Gallery" links={links} />
+export const PNGImages = () => <PagesTemplate header="PNG images" links={pngLinks} />
+export const JPEGImages = () => <PagesTemplate header="JPEG images" links={jpegLinks} />
+export const GalleryPNGItem = () => <PageTemplate headerPrefix="PNG" />
+export const GalleryJPEGItem = () => <PageTemplate headerPrefix="JPEG" />

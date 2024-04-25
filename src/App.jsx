@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-
-import { Modal } from './components'
-import { Home } from './containers'
+import { Router } from './containers'
 
 import { useStore } from './store'
 
@@ -22,8 +20,7 @@ export const App = () => {
 
   return (
     <div className="app-wrapper position-relative">
-      <Home />
-      <Modal isOpen={isModalOpened} onClose={onModalClose} />
+      <Router />
     </div>
   )
 }
