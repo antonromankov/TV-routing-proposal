@@ -3,7 +3,7 @@ h1 {
 }
 
 .app-wrapper {
-  padding: 60px 0;
+  height: 100vh;
 }
 
 /*.breadcrumbs {*/
@@ -26,4 +26,47 @@ h1 {
 
 .breadcrumb {
   margin-bottom: 0;
+}
+
+.app-sidebar {
+  padding: 60px 0;
+  width: 150px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+  background-color: #efefff;
+}
+
+.app-sidebar ul {
+  padding-bottom: 100px;
+}
+
+.app-content {
+  padding: 60px 30px;
+  /*position: relative;*/
+}
+
+.app-modal {
+  background-color: #efffef;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 3;
+  padding: 60px 30px 60px 180px;
+  opacity: 0.95;
+}
+
+.menu {
+  width: 80%;
+}
+
+.menu-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
 }
