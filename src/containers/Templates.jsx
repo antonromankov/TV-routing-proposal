@@ -37,9 +37,11 @@ const withHistory = (Component) => (props) => {
   useEffect(() => {
     // TODO get focus id from store
     console.log(`${pathname} in`)
+    pushPage({ path: pathname })
     return () => {
       // TODO set focus id to store
       // [{ path: pathname, focusId: currentPageFocusId }]
+      removeLastPage()
       console.log(`${pathname} out`)
     }
   }, [])

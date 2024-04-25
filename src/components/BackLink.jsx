@@ -1,7 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Button } from 'reactstrap'
+import { useNavigate } from 'react-router-dom'
 
-export const BackLink = ({ to }) => (
-  <Link to={to} className="mb-3 d-inline-block">
-    ← Back
-  </Link>
-)
+export const BackLink = () => {
+  const navigate = useNavigate()
+
+  const onClick = () => {
+    navigate(-1)
+  }
+
+  return (
+    <Button className="mb-3 p-0" color="link" onClick={onClick}>
+      ← Back
+    </Button>
+  )
+}

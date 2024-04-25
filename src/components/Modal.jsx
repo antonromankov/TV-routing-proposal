@@ -1,7 +1,5 @@
 import { Modal as RModal, ModalHeader, ModalBody } from 'reactstrap'
 
-import { Breadcrumbs } from './Breadcrumbs'
-
 import { Router } from '../containers'
 import { useStore } from '../store'
 
@@ -10,10 +8,10 @@ export const Modal = ({ isOpen, onClose }) => {
 
   return (
     <RModal isOpen={isOpen} toggle={onClose} backdrop="static">
-      <ModalHeader toggle={onClose}>Breadcrumbs</ModalHeader>
+      <ModalHeader toggle={onClose}>Router in modal</ModalHeader>
       <ModalBody>
-        <Breadcrumbs />
-        <hr />
+        {/*<Breadcrumbs />*/}
+        {/*<hr />*/}
         <Router />
       </ModalBody>
     </RModal>
