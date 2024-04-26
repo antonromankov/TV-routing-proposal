@@ -36,12 +36,12 @@ export const useManageFocus = () => {
       if (!pages[pathname]) {
         const focusId = uuid()
         pushPage({ [pathname]: focusId })
-        toast.warning(`Added focusId: ${focusId}`)
+        toast.warning(`Added focusId for ${pathname}`)
       }
     }
 
     if (pages[pathname]) {
-      toast.success(`Restored focus: ${pages[pathname]}`)
+      toast.success(`Restored focus on ${pathname}`)
     }
 
     console.log(`${pathname} in`)

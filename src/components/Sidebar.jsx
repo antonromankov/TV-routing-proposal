@@ -14,7 +14,7 @@ export const Sidebar = ({ items }) => {
   const handleBack = () => {
     navigate(-1)
     removePage(pathname)
-    toast.error(`Cleared focus for ${pathname}`)
+    toast.error(`Removed focus for ${pathname}`)
   }
 
   const handleNavigate = (to) => {
