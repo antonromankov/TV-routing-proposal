@@ -1,20 +1,29 @@
 export const historyStore = (set) => ({
-  pages: [],
+  pages: {},
   pushPage: (page) =>
     set(
       (state) => {
-        state.history.pages = [...state.history.pages, page]
+        for (const key in page) {
+          state.history.pages[key] = page[key]
+        }
       },
       false,
       'addPage'
     ),
-  removeLastPage: () =>
+  removePage: (path) =>
     set(
       (state) => {
-        const { pages } = state.history
-        state.history.pages = pages.slice(0, pages.length - 1)
+        delete state.history.pages[path]
       },
       false,
-      'removeLastPage'
+      'removePage'
+    ),
+  clearPages: () =>
+    set(
+      (state) => {
+        state.history.pages = {}
+      },
+      false,
+      'clearPages'
     )
 })

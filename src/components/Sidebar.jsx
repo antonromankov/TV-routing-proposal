@@ -1,7 +1,10 @@
 import { Button } from 'reactstrap'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useStore } from '../store'
+import { toast } from 'react-toastify'
 
 export const Sidebar = ({ items }) => {
+  const { removePage } = useStore((state) => state.history)
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -10,6 +13,8 @@ export const Sidebar = ({ items }) => {
 
   const handleBack = () => {
     navigate(-1)
+    removePage(pathname)
+    toast.error(`Cleared focus for ${pathname}`)
   }
 
   const handleNavigate = (to) => {

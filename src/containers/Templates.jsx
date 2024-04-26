@@ -1,12 +1,10 @@
-import { Component, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 
 import { LinksList } from '../components'
-
-import { useStore } from '../store'
 import { Input, FormGroup, Label, Form } from 'reactstrap'
+import { toast } from 'react-toastify'
 
-const PagesTemplateRaw = ({ header, links }) => {
+export const PagesTemplate = ({ header, links }) => {
   const location = useLocation()
 
   return (
@@ -17,7 +15,7 @@ const PagesTemplateRaw = ({ header, links }) => {
   )
 }
 
-const PageTemplateRaw = ({ headerPrefix }) => {
+export const PageTemplate = ({ headerPrefix }) => {
   const { id } = useParams()
 
   return (
@@ -27,25 +25,6 @@ const PageTemplateRaw = ({ headerPrefix }) => {
       </h1>
     </div>
   )
-}
-
-const withHistory = (Component) => (props) => {
-  const { pathname } = useLocation()
-  const { pages, pushPage, removeLastPage } = useStore((state) => state.history)
-
-  useEffect(() => {
-    // TODO get focus id from store
-    console.log(`${pathname} in`)
-    pushPage({ path: pathname })
-    return () => {
-      // TODO set focus id to store
-      // [{ path: pathname, focusId: currentPageFocusId }]
-      removeLastPage()
-      console.log(`${pathname} out`)
-    }
-  }, [])
-
-  return <Component {...props} />
 }
 
 export const SettingsPages = () => {
@@ -68,7 +47,7 @@ export const SettingsPageId = () => {
 
   const onSubmit = (e) => {
     e.preventDefault()
-    alert(`Save page ${id}`)
+    toast(`Save page ${id}`)
   }
 
   return (
@@ -85,6 +64,3 @@ export const SettingsPageId = () => {
     </div>
   )
 }
-
-export const PageTemplate = withHistory(PageTemplateRaw)
-export const PagesTemplate = withHistory(PagesTemplateRaw)

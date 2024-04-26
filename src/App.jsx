@@ -1,26 +1,25 @@
-import { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import { Router } from './containers'
-
-import { useStore } from './store'
+import { useManageFocus } from './hooks'
 
 export const App = () => {
-  const location = useLocation()
-  const navigate = useNavigate()
-  const { isModalOpened, setModalOpened } = useStore((state) => state.common)
-
-  useEffect(() => {
-    setModalOpened(location.pathname !== '/')
-  }, [location])
-
-  const onModalClose = () => {
-    setModalOpened(false)
-    navigate('/')
-  }
+  useManageFocus()
 
   return (
     <div className="app-wrapper position-relative">
       <Router />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
     </div>
   )
 }

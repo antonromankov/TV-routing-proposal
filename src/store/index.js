@@ -5,7 +5,7 @@ import { immer } from 'zustand/middleware/immer'
 import { historyStore } from './history.js'
 import { commonStore } from './common.js'
 
-export const useStore = create()(
+export const useStore = create(
   devtools(
     immer((...args) => ({
       common: { ...commonStore(...args) },
