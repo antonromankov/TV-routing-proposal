@@ -15,9 +15,9 @@ export const App = () => {
         newestOnTop
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
+        pauseOnFocusLoss={false}
         draggable={false}
-        pauseOnHover
+        pauseOnHover={false}
         theme="light"
       />
     </div>
